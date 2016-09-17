@@ -74,10 +74,18 @@ function MainLoop(p1,p2) {
                 turns++;
                 $targetField.attr('data-taken', p1.token);
                 $targetField.attr('data-player', p1.name);
+                setTimeout(function(){
+                    $('.player.player-2').find('.player-UI-name').addClass('active-player-box');
+                    $('.player.player-1').find('.player-UI-name').removeClass('active-player-box');
+                },100);
             } else {
                 turns++;
                 $targetField.attr('data-taken', p2.token);
                 $targetField.attr('data-player', p2.name);
+                setTimeout(function(){
+                    $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+                    $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
+                },100);
             }   
         }
         // check if someone has won
@@ -217,6 +225,9 @@ function PopUp (p1, p2) {
             _this.setPlayersOnScoresTable(p1,p2);
             windows['token'].fadeOut();
             popUpBg.fadeOut();
+            // add active-player style to player 1
+            $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+            $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
             // after sometime set the tokens to their default positions
             setTimeout(function(){
                $('.token-choice').attr('style','');
@@ -229,11 +240,17 @@ function PopUp (p1, p2) {
                 windows['round'].find('#round-winner').text('');
             });
             popUpBg.fadeOut();
+            // add active-player style to player 1
+            $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+            $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
         });
         buttons['draw round'].on('click', function(e){
             e.preventDefault();
             windows['draw'].fadeOut();
             popUpBg.fadeOut();
+            // add active-player style to player 1
+            $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+            $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
         });
         buttons['play again'].on('click', function(e){
             e.preventDefault();
@@ -286,12 +303,12 @@ function PopUp (p1, p2) {
         player1Name.text(p1.name);
         player1Name.attr('data-player-token', p1.token);
         player1Image.attr('data-player-token', p1.token);
-        player1Image.attr('src', '/dist/assets/images/player-image-'+ p1.token +'.png');
+        player1Image.attr('src', 'dist/assets/images/player-image-'+ p1.token +'.png');
         // player two attributes
         player2Name.text(p2.name);
         player2Name.attr('data-player-token', p2.token);
         player2Image.attr('data-player-token', p2.token);
-        player2Image.attr('src', '/dist/assets/images/player-image-'+ p2.token +'.png');
+        player2Image.attr('src', 'dist/assets/images/player-image-'+ p2.token +'.png');
         
         // associate players with scores tables
         scoresDisplayForP1.attr('data-player', p1.name);
