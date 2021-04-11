@@ -1,6 +1,7 @@
 # Skulls n Bones
 
 This is a small tic tac toe game with a pirate feel and custom, sometimes hand drawn graphics.
+This repository if setup for Github.io, the source code is in this one - https://github.com/TWasilonek/skull-n-bones-source-code 
 
 You can play it here - https://twasilonek.github.io/skull-n-bones/
 
